@@ -182,7 +182,7 @@ class Onkyo(QWidget):
 		self.trayIconMenu.addAction(self.PoweroffAction)
 		self.trayIconMenu.addSeparator()
 		self.trayIconMenu.addAction(self.quitAction)
-		self.trayIcon = QSystemTrayIcon(QIcon("onkyo.png"), self)
+		self.trayIcon = QSystemTrayIcon(QIcon("/usr/share/icons/onkyo.png"), self)
 		self.trayIcon.setContextMenu(self.trayIconMenu)
 
 	def createTrayError(self, e):
