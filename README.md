@@ -5,7 +5,7 @@
 
 ### Install deps, for Ununtu
 ```
-sudo apt-get install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python
+sudo apt-get install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python git
 sudo pip2 install onkyo-eiscp
 ```
 ### Change IP in file: 
