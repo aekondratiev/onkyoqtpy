@@ -5,9 +5,11 @@
 sudo aptitude install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python
 sudo pip2 install onkyo-eiscp
 ```
-### Change IP in file host = "192.168.1.9" (mine is 192.168.1.9, use your own ip of reciver): 
+### Change IP in file: 
 
 `onkyoqt/onkyoqt.py`
+
+host = "192.168.1.9" (mine is 192.168.1.9, use your own ip of reciver)
 
 ### Install
 
