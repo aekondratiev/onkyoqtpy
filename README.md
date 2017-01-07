@@ -9,7 +9,7 @@ sudo pip2 install onkyo-eiscp
 
 `onkyoqt/onkyoqt.py`
 
-host = "192.168.1.9" (mine is 192.168.1.9, use your own ip of reciver)
+`host = "192.168.1.9"` (mine is 192.168.1.9, use your own ip of reciver)
 
 ### Install
 
