@@ -1,7 +1,7 @@
 ## onkyoqt - GUI for onkyo recivers
 ### Python2 only :( , But QT5
 
-![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/onkyoqt_screenshot.png)
+![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/screenshot.png)
 
 ### Install deps, for Debian/Ubuntu
 ```
