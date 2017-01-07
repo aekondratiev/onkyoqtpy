@@ -1,8 +1,11 @@
 ## onkyoqt - GUI for onkyo recivers
 ### Python2 only :( , But QT5
+
+![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/onkyoqt_screenshot.png)
+
 ### Install deps, for Ununtu
 ```
-sudo aptitude install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python
+sudo apt-get install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python
 sudo pip2 install onkyo-eiscp
 ```
 ### Change IP in file: 
