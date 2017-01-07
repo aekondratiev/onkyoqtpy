@@ -21,4 +21,8 @@ sudo pip2 install onkyo-eiscp
 
 or from application menu Multimedia
 
+### Known issues
+
+`__settings.ini` dont work for now, dont edit it. 
+
 
