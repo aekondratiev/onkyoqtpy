@@ -1,5 +1,5 @@
 ## onkyotq - GUI for onkyo recivers
-### Python2 only :(
+### Python2 only :( , But QT5
 ### Install deps, for Ununtu
 ```
 sudo aptitude install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python
