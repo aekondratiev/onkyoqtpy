@@ -1,4 +1,4 @@
-## onkyotq - GUI for onkyo recivers
+## onkyoqt - GUI for onkyo recivers
 ### Python2 only :( , But QT5
 ### Install deps, for Ununtu
 ```
