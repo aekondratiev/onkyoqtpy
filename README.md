@@ -3,7 +3,7 @@
 
 ![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/onkyoqt_screenshot.png)
 
-### Install deps, for Debian/Ununtu
+### Install deps, for Debian/Ubuntu
 ```
 sudo apt-get install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python git
 sudo pip2 install onkyo-eiscp
