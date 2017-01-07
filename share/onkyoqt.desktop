@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Onkyo QT
+Comment=GUI for Onkyo recivers
+Exec=onkyoqt
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=/usr/share/icons/onkyo.png
+Categories=AudioVideo;

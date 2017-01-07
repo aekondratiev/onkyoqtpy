@@ -1,0 +1,36 @@
+#!/usr/bin/env python2
+
+
+import glob
+import os
+from distutils.command.build import build
+from distutils.core import setup
+
+
+setup(
+    name='onkyoqt',
+    version='0.1',
+    description='QT GUI for onkyo',
+    author='Andry Kondratiev',
+    author_email='andry.kondratiev@gmail.com',
+    url='https://github.com/massdest/onkyoqtpy',
+    license='GPLv3',
+    packages=['onkyoqt'],
+    keywords=['qt', 'onkyo'],
+    data_files=[('/usr/share/applications', ['share/onkyoqt.desktop']),
+                ('/usr/share/icons', ['onkyoqt/onkyo.png'])],
+        scripts=["bin/onkyoqt"],
+        classifiers=[
+            'Development Status :: 5 - Production/Stable',
+            'Intended Audience :: Other Audience',
+            'Natural Language :: English',
+            'License :: OSI Approved :: GNU General Public License (GPL)',
+            'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+            'Operating System :: POSIX :: Linux',
+            'Programming Language :: Python',
+            'Programming Language :: Python :: 2',
+            'Programming Language :: Python :: 2.7',
+        ],
+)
+
+
