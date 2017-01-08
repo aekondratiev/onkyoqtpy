@@ -9,7 +9,7 @@ from PyQt5.QtGui import QIcon, QKeySequence
 from PyQt5.QtWidgets import (QAction, QApplication, QCheckBox, QComboBox,
         QDialog, QGridLayout, QGroupBox, QHBoxLayout, QLabel, QLineEdit,
         QMessageBox, QMenu, QPushButton, QSpinBox, QStyle, QSystemTrayIcon,
-        QTextEdit, QVBoxLayout, QWidget, QShortcut)
+        QTextEdit, QVBoxLayout, QWidget, QShortcut, QMainWindow)
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -18,8 +18,8 @@ host = "192.168.1.9"
 #host = settings.value('host', type=str)
 receiver = eiscp.eISCP(host)
 
-class Onkyo(QWidget):
-    
+class Onkyo(QMainWindow):
+
 	def __init__(self):
 		super(Onkyo, self).__init__()
 		self.initUI()
@@ -35,16 +35,18 @@ class Onkyo(QWidget):
 			receiver.command('input-selector=usb')
 		except Exception as e:
 			self.createTrayError(e)
- 
+
 	def btn_volumeup_click(self):
 		try:
-			receiver.command('volume=level-up')
+			volume_now = receiver.command('volume=level-up')
+			self.sendTextToStatusBar(volume_now)
 		except Exception as e:
 			self.createTrayError(e)
 
 	def btn_volumedown_click(self):
 		try:
-			receiver.command('volume=level-down')
+			volume_now = receiver.command('volume=level-down')
+			self.sendTextToStatusBar(volume_now)
 		except Exception as e:
 			self.createTrayError(e)
 
@@ -86,7 +88,8 @@ class Onkyo(QWidget):
 
 	def btn_mute_click(self):
 		try:
-			receiver.command('volume=0')
+			volume_now = receiver.command('volume=0')
+			self.sendTextToStatusBar(volume_now)
 		except Exception as e:
 			self.createTrayError(e)
 	
@@ -94,15 +97,19 @@ class Onkyo(QWidget):
 	
 		btn_inputpc = QPushButton('PC', self)
 		btn_inputpc.move(10, 10)
+		btn_inputpc.setMaximumWidth(85)
 	
 		btn_inputusb = QPushButton('USB', self)
-		btn_inputusb.move(10, 40)	 
-	
+		btn_inputusb.move(10, 40)
+		btn_inputusb.setMaximumWidth(85)
+
 		btn_volumeup = QPushButton('Vol +', self)
 		btn_volumeup.move(125, 10)
+		btn_volumeup.setMaximumWidth(85)
 	
 		btn_volumedown = QPushButton('Vol -', self)
-		btn_volumedown.move(125, 40)	 
+		btn_volumedown.move(125, 40)
+		btn_volumedown.setMaximumWidth(85)
 
 		btn_usbstop = QPushButton('Stop', self)
 		btn_usbstop.move(10, 70)
@@ -151,7 +158,7 @@ class Onkyo(QWidget):
 
 		self.setWindowIcon(QIcon('/usr/share/icons/onkyo.png'))
 	
-		self.setFixedSize(220, 140)
+		self.setFixedSize(220, 160)
 		self.setWindowTitle('Onkyo Control') 
 		self.show()
 
@@ -159,6 +166,7 @@ class Onkyo(QWidget):
 		self.createTrayIcon()
 		self.createShortcuts()
 		self.trayIcon.show()
+		self.statusBar()
 
 	def createShortcuts(self):
 		self.shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
@@ -173,26 +181,36 @@ class Onkyo(QWidget):
 		self.quitAction = QAction("&Quit", self, triggered=QApplication.instance().quit)
 		self.PoweroffAction = QAction("&Power OFF", self, triggered=self.btn_poweroff_click)
 		self.MuteAction = QAction("&Mute", self, triggered=self.btn_mute_click)
+		self.VolumeupAction = QAction("&Volume UP", self, triggered=self.btn_volumeup_click)
+		self.VolumedownAction = QAction("&Volume Down", self, triggered=self.btn_volumedown_click)
 
 	def createTrayIcon(self):
 		self.trayIconMenu = QMenu(self)
 		self.trayIconMenu.addAction(self.restoreAction)
 		self.trayIconMenu.addSeparator()
+		self.trayIconMenu.addAction(self.VolumeupAction)
+		self.trayIconMenu.addAction(self.VolumedownAction)
 		self.trayIconMenu.addAction(self.MuteAction)
+		self.trayIconMenu.addSeparator()
 		self.trayIconMenu.addAction(self.PoweroffAction)
 		self.trayIconMenu.addSeparator()
 		self.trayIconMenu.addAction(self.quitAction)
 		self.trayIcon = QSystemTrayIcon(QIcon("/usr/share/icons/onkyo.png"), self)
 		self.trayIcon.setContextMenu(self.trayIconMenu)
 
+	def sendTextToStatusBar(self, text):
+		self.statusBar().showMessage(str(text))
+
 	def createTrayError(self, e):
 		return self.trayIcon.showMessage('Error', 'Send command to receiver failed:\n' + str(e), QSystemTrayIcon.Critical, 5 * 1000)
 
+
 def main():
-    app = QApplication(sys.argv)
-    QApplication.setQuitOnLastWindowClosed(False)
-    ex = Onkyo()
-    sys.exit(app.exec_())
+	app = QApplication(sys.argv)
+	QApplication.setQuitOnLastWindowClosed(False)
+	ex = Onkyo()
+	sys.exit(app.exec_())
 
 if __name__ == '__main__':
-    main()
+	main()
+
