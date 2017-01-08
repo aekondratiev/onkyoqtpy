@@ -18,7 +18,14 @@ setup(
     packages=['onkyoqt'],
     keywords=['qt', 'onkyo'],
     data_files=[('/usr/share/applications', ['share/onkyoqt.desktop']),
-                ('/usr/share/icons', ['onkyoqt/onkyo.png'])],
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_exit.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_mute.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_poweroff.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_restore.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_volumedown.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_volumeup.png'])
+                ],
         scripts=["bin/onkyoqt"],
         classifiers=[
             'Development Status :: 5 - Production/Stable',

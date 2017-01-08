@@ -177,12 +177,12 @@ class Onkyo(QMainWindow):
 	def createActions(self):
 		self.minimizeAction = QAction("Mi&nimize", self, triggered=self.hide)
 		self.maximizeAction = QAction("Ma&ximize", self, triggered=self.showMaximized)
-		self.restoreAction = QAction("&Restore", self, triggered=self.showNormal)
-		self.quitAction = QAction("&Quit", self, triggered=QApplication.instance().quit)
-		self.PoweroffAction = QAction("&Power OFF", self, triggered=self.btn_poweroff_click)
-		self.MuteAction = QAction("&Mute", self, triggered=self.btn_mute_click)
-		self.VolumeupAction = QAction("&Volume UP", self, triggered=self.btn_volumeup_click)
-		self.VolumedownAction = QAction("&Volume Down", self, triggered=self.btn_volumedown_click)
+		self.restoreAction = QAction(QIcon('/usr/share/icons/onkyo_restore.png'), "&Restore", self, triggered=self.showNormal)
+		self.quitAction = QAction(QIcon('/usr/share/icons/onkyo_exit.png'), "&Quit", self, triggered=QApplication.instance().quit)
+		self.PoweroffAction = QAction(QIcon('/usr/share/icons/onkyo_poweroff.png'), "&Power OFF", self, triggered=self.btn_poweroff_click)
+		self.MuteAction = QAction(QIcon('/usr/share/icons/onkyo_mute.png'), "&Mute", self, triggered=self.btn_mute_click)
+		self.VolumeupAction = QAction(QIcon('/usr/share/icons/onkyo_volumeup.png'), "&Volume UP", self, triggered=self.btn_volumeup_click)
+		self.VolumedownAction = QAction(QIcon('/usr/share/icons/onkyo_volumedown.png'), "&Volume Down", self, triggered=self.btn_volumedown_click)
 
 	def createTrayIcon(self):
 		self.trayIconMenu = QMenu(self)
