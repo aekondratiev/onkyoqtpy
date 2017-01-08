@@ -24,6 +24,7 @@ setup(
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_poweroff.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_restore.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_volumedown.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_about.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_volumeup.png'])
                 ],
         scripts=["bin/onkyoqt"],

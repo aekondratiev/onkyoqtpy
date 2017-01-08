@@ -4,12 +4,18 @@
 import sys
 import eiscp
 import signal
-from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot, QSettings, Qt
+import platform
+from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot, QSettings, Qt, QCoreApplication
 from PyQt5.QtGui import QIcon, QKeySequence
 from PyQt5.QtWidgets import (QAction, QApplication, QCheckBox, QComboBox,
         QDialog, QGridLayout, QGroupBox, QHBoxLayout, QLabel, QLineEdit,
         QMessageBox, QMenu, QPushButton, QSpinBox, QStyle, QSystemTrayIcon,
         QTextEdit, QVBoxLayout, QWidget, QShortcut, QMainWindow)
+
+try:
+	import about_dlg
+except:
+	from onkyoqt import about_dlg
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -183,6 +189,7 @@ class Onkyo(QMainWindow):
 		self.MuteAction = QAction(QIcon('/usr/share/icons/onkyo_mute.png'), "&Mute", self, triggered=self.btn_mute_click)
 		self.VolumeupAction = QAction(QIcon('/usr/share/icons/onkyo_volumeup.png'), "&Volume UP", self, triggered=self.btn_volumeup_click)
 		self.VolumedownAction = QAction(QIcon('/usr/share/icons/onkyo_volumedown.png'), "&Volume Down", self, triggered=self.btn_volumedown_click)
+		self.aboutAction = QAction(QIcon('/usr/share/icons/onkyo_about.png'),"&About", self, triggered=self.about)
 
 	def createTrayIcon(self):
 		self.trayIconMenu = QMenu(self)
@@ -194,6 +201,7 @@ class Onkyo(QMainWindow):
 		self.trayIconMenu.addSeparator()
 		self.trayIconMenu.addAction(self.PoweroffAction)
 		self.trayIconMenu.addSeparator()
+		self.trayIconMenu.addAction(self.aboutAction)
 		self.trayIconMenu.addAction(self.quitAction)
 		self.trayIcon = QSystemTrayIcon(QIcon("/usr/share/icons/onkyo.png"), self)
 		self.trayIcon.setContextMenu(self.trayIconMenu)
@@ -204,6 +212,21 @@ class Onkyo(QMainWindow):
 	def createTrayError(self, e):
 		return self.trayIcon.showMessage('Error', 'Send command to receiver failed:\n' + str(e), QSystemTrayIcon.Critical, 5 * 1000)
 
+	def about(self):
+		title = self.tr("""<b>Onkyo QT</b>
+			<br/>License: GPLv3
+			<br/>Python {0} - on {1}""").format(platform.python_version(), platform.system())
+		image = ':/logo'
+		text = self.tr("""<p>Author: Andry Kondratiev <a href="mailto:andry.kondratiev@gmail.com">andry.kondratiev@gmail.com</a>
+						<p>Website: <a href="https://github.com/massdest/onkyoqtpy">
+						https://github.com/massdest/onkyoqtpy</a>
+						""")
+		contributors = QCoreApplication.translate("About dialog", """
+			Author: Andry Kondratiev<br/>
+			""", "List of contributors")
+
+		dialog = about_dlg.AboutDialog(title, text, image, contributors, self)
+		dialog.exec_()
 
 def main():
 	app = QApplication(sys.argv)
