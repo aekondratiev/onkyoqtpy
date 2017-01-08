@@ -16,7 +16,13 @@ sudo pip2 install onkyo-eiscp
 
 ### Install
 
+#### From Git
+
 `git clone https://github.com/massdest/onkyoqtpy.git ; cd onkyoqtpy ; sudo python2 setup.py install`
+
+#### From Pip
+
+`sudo pip2 install onkyoqt`
 
 ### Run
 
