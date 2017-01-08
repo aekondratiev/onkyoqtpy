@@ -163,7 +163,6 @@ class Onkyo(QMainWindow):
 		btn_mute.clicked.connect(self.btn_mute_click)
 
 		self.setWindowIcon(QIcon('/usr/share/icons/onkyo.png'))
-	
 		self.setFixedSize(220, 160)
 		self.setWindowTitle('Onkyo Control') 
 		self.show()
