@@ -30,4 +30,6 @@ sudo pip2 install onkyo-eiscp
 
 or from application menu Multimedia
 
+### Known Issues
 
+Application start work about 30-60 seconds after receiver powered on, so be patient. 
