@@ -9,7 +9,7 @@ from distutils.core import setup
 
 setup(
     name='onkyoqt',
-    version='0.1',
+    version='0.3',
     description='QT GUI for onkyo',
     author='Andry Kondratiev',
     author_email='andry.kondratiev@gmail.com',
@@ -17,6 +17,7 @@ setup(
     license='GPLv3',
     packages=['onkyoqt'],
     keywords=['qt', 'onkyo'],
+    install_requires=['onkyo-eiscp'],
     data_files=[('/usr/share/applications', ['share/onkyoqt.desktop']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_exit.png']),
@@ -25,6 +26,7 @@ setup(
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_restore.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_volumedown.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_about.png']),
+                ('/usr/share/icons', ['onkyoqt/icons/onkyo_settings.png']),
                 ('/usr/share/icons', ['onkyoqt/icons/onkyo_volumeup.png'])
                 ],
         scripts=["bin/onkyoqt"],
