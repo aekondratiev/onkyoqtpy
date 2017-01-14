@@ -1,18 +1,18 @@
 ## onkyoqt - GUI for onkyo recivers
 ### Python2 only :( , But QT5
 
-![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/screenshot.png)
+![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/screenshot1.png)
+
+![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/screenshot2.png)
 
 ### Install deps, for Debian/Ubuntu
 ```
 sudo apt-get install python-pyqt5 pyqt5-dev-tools qttools5-dev-tools python-pip python git
 sudo pip2 install onkyo-eiscp
 ```
-### Change IP in file: 
+### Set IP in settings and restart application: 
 
-`onkyoqt/onkyoqt.py`
-
-`host = "192.168.1.9"` (mine is 192.168.1.9, use your own ip of reciver)
+**File->Settings->Receiver IP**
 
 ### Install
 
@@ -29,9 +29,5 @@ sudo pip2 install onkyo-eiscp
 `/usr/local/bin/onkyoqt`
 
 or from application menu Multimedia
-
-### Known issues
-
-`__settings.ini` dont work for now, dont edit it. 
 
 
