@@ -1,4 +1,4 @@
-## onkyoqt - GUI for onkyo recivers
+## onkyoqt - GUI for [Onkyo](http://www.onkyo.com/) receivers
 ### Python2 only :( , But QT5
 
 ![Screenshot of onkyoqt](https://github.com/massdest/onkyoqtpy/raw/master/screenshot1.png)
