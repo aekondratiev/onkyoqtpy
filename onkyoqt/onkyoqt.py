@@ -61,32 +61,32 @@ class Onkyo(QMainWindow):
 	def btn_usbstop_click(self):
 		try:
 			self.receiver.command('network-usb=stop')
-		except Exception as e:
-			self.createTrayError(e)
+		except:
+			pass
 
 	def btn_usbplay_click(self):
 		try:
 			self.receiver.command('network-usb=play')
-		except Exception as e:
-			self.createTrayError(e)
+		except:
+			pass
 
 	def btn_usbpause_click(self):
 		try:
 			self.receiver.command('network-usb=pause')
-		except Exception as e:
-			self.createTrayError(e)
+		except:
+			pass
 
 	def btn_usbprew_click(self):
 		try:
 			self.receiver.command('network-usb=trdn')
-		except Exception as e:
-			self.createTrayError(e)
+		except:
+			pass
 
 	def btn_usbnext_click(self):
 		try:
 			self.receiver.command('network-usb=trup')
-		except Exception as e:
-			self.createTrayError(e)
+		except:
+			pass
 
 	def btn_poweroff_click(self):
 		try:
